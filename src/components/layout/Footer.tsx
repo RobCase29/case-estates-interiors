@@ -24,16 +24,16 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer className="relative bg-background-light text-text-dark overflow-hidden">
+    <footer className="relative bg-beige/30 text-text-dark overflow-hidden">
       {/* Background Pattern */}
-      <div className="absolute inset-0 bg-elegant-pattern bg-pattern-size opacity-30" />
+      <div className="absolute inset-0 bg-elegant-pattern bg-pattern-size opacity-20" />
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
           {/* Logo and Tagline */}
           <div className="text-center md:text-left">
             <Link href="/" className="inline-block">
-              <h2 className="text-2xl font-serif text-deep-green">
+              <h2 className="text-2xl font-serif text-deep-green hover:text-deep-green/80 transition-colors">
                 Case Estates
               </h2>
             </Link>
@@ -46,13 +46,13 @@ export default function Footer() {
           <div className="text-center">
             <h3 className="text-lg font-serif mb-4 text-mahogany">Contact</h3>
             <div className="space-y-2">
-              <p className="text-text-light/80">
-                <a href="mailto:emmahcase@gmail.com" className="hover:text-deep-green transition-colors">
+              <p>
+                <a href="mailto:emmahcase@gmail.com" className="text-text-light/80 hover:text-deep-green transition-colors">
                   emmahcase@gmail.com
                 </a>
               </p>
-              <p className="text-text-light/80">
-                <a href="tel:617-285-1044" className="hover:text-deep-green transition-colors">
+              <p>
+                <a href="tel:617-285-1044" className="text-text-light/80 hover:text-deep-green transition-colors">
                   (617) 285-1044
                 </a>
               </p>
