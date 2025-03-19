@@ -1,103 +1,147 @@
-import Image from "next/image";
+'use client';
+
+import { motion } from 'framer-motion';
+import Hero from '@/components/home/Hero';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 }
+};
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div>
+      <Hero />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+      {/* About Section */}
+      <section className="py-24 bg-primary-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            <div>
+              <h2 className="text-3xl sm:text-4xl font-serif text-gray-900">
+                Crafting Beautiful Spaces That Tell Your Story
+              </h2>
+              <p className="mt-6 text-lg text-gray-600 leading-relaxed">
+                At Case Estates Home Interiors, we believe that every space has a story to tell. 
+                With an eye for detail and a passion for design, Emma Case transforms houses into 
+                homes that reflect your unique style and personality.
+              </p>
+              <Link
+                href="/about"
+                className="mt-8 inline-block text-accent-600 hover:text-accent-700 font-medium"
+              >
+                Learn more about our approach →
+              </Link>
+            </div>
+            <div className="relative h-96 lg:h-[500px]">
+              <div className="absolute inset-0 bg-primary-100 -rotate-6 transform" />
+              <div className="absolute inset-0 overflow-hidden">
+                <Image
+                  src="/about-interior.jpg"
+                  alt="Elegant interior design"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+            </div>
+          </motion.div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Services Preview */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="text-center"
+          >
+            <h2 className="text-3xl sm:text-4xl font-serif text-gray-900">
+              Our Services
+            </h2>
+            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+              From initial concept to final styling, we offer comprehensive interior design services
+              tailored to your needs.
+            </p>
+          </motion.div>
+
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.title}
+                initial="initial"
+                whileInView="animate"
+                viewport={{ once: true }}
+                variants={{
+                  initial: { opacity: 0, y: 20 },
+                  animate: {
+                    opacity: 1,
+                    y: 0,
+                    transition: { delay: index * 0.2 }
+                  }
+                }}
+                className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
+              >
+                <h3 className="text-xl font-serif text-gray-900">{service.title}</h3>
+                <p className="mt-4 text-gray-600">{service.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-24 bg-accent-900 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <motion.div
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+          >
+            <h2 className="text-3xl sm:text-4xl font-serif">
+              Ready to Transform Your Space?
+            </h2>
+            <p className="mt-4 text-xl text-gray-200 max-w-2xl mx-auto">
+              Let's create something beautiful together. Contact us to begin your journey
+              to a space that inspires.
+            </p>
+            <Link
+              href="/contact"
+              className="mt-8 inline-block bg-white text-accent-900 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors duration-200"
+            >
+              Get Started
+            </Link>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }
+
+const services = [
+  {
+    title: "Interior Design",
+    description: "Full-service interior design solutions that transform your space from concept to completion."
+  },
+  {
+    title: "Space Planning",
+    description: "Strategic layout planning that maximizes your space's functionality and flow."
+  },
+  {
+    title: "Styling & Decoration",
+    description: "Final touches and styling services to bring your space to life with carefully curated pieces."
+  }
+];
