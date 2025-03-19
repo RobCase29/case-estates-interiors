@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Hero from '@/components/home/Hero';
+import ProjectCategories from '@/components/home/ProjectCategories';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -13,11 +14,11 @@ const fadeInUp = {
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-background-light">
       <Hero />
 
       {/* About Section */}
-      <section className="py-24 bg-primary-50">
+      <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -27,27 +28,27 @@ export default function Home() {
             className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
           >
             <div>
-              <h2 className="text-3xl sm:text-4xl font-serif text-gray-900">
-                Crafting Beautiful Spaces That Tell Your Story
+              <h2 className="text-3xl sm:text-4xl font-serif text-text-light">
+                Classic New England Charm Meets Modern Design
               </h2>
-              <p className="mt-6 text-lg text-gray-600 leading-relaxed">
-                At Case Estates Home Interiors, we believe that every space has a story to tell. 
-                With an eye for detail and a passion for design, Emma Case transforms houses into 
-                homes that reflect your unique style and personality.
+              <p className="mt-6 text-lg text-text-light/80 leading-relaxed">
+                At Case Estates Home Interiors, we blend timeless elegance with contemporary 
+                functionality. Emma Case brings a unique perspective to each project, 
+                creating spaces that are both sophisticated and wonderfully livable.
               </p>
               <Link
                 href="/about"
-                className="mt-8 inline-block text-accent-600 hover:text-accent-700 font-medium"
+                className="mt-8 inline-block text-primary hover:text-primary-hover font-medium"
               >
                 Learn more about our approach →
               </Link>
             </div>
             <div className="relative h-96 lg:h-[500px]">
-              <div className="absolute inset-0 bg-primary-100 -rotate-6 transform" />
+              <div className="absolute inset-0 bg-primary/10 -rotate-6 transform" />
               <div className="absolute inset-0 overflow-hidden">
                 <Image
                   src="/about-interior.jpg"
-                  alt="Elegant interior design"
+                  alt="Elegant interior design by Emma Case"
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -58,8 +59,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Project Categories */}
+      <ProjectCategories />
+
       {/* Services Preview */}
-      <section className="py-24">
+      <section className="py-24 bg-accent-light/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial="initial"
@@ -68,12 +72,12 @@ export default function Home() {
             variants={fadeInUp}
             className="text-center"
           >
-            <h2 className="text-3xl sm:text-4xl font-serif text-gray-900">
+            <h2 className="text-3xl sm:text-4xl font-serif text-text-light">
               Our Services
             </h2>
-            <p className="mt-4 text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="mt-4 text-lg text-text-light/80 max-w-3xl mx-auto">
               From initial concept to final styling, we offer comprehensive interior design services
-              tailored to your needs.
+              tailored to your unique vision and lifestyle.
             </p>
           </motion.div>
 
@@ -92,10 +96,10 @@ export default function Home() {
                     transition: { delay: index * 0.2 }
                   }
                 }}
-                className="bg-white p-8 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-200"
+                className="bg-white p-8 rounded-xl shadow-soft hover:shadow-warm transition-all duration-300"
               >
-                <h3 className="text-xl font-serif text-gray-900">{service.title}</h3>
-                <p className="mt-4 text-gray-600">{service.description}</p>
+                <h3 className="text-xl font-serif text-text-light">{service.title}</h3>
+                <p className="mt-4 text-text-light/80">{service.description}</p>
               </motion.div>
             ))}
           </div>
@@ -103,7 +107,7 @@ export default function Home() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-accent-900 text-white">
+      <section className="py-24 bg-background-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial="initial"
@@ -114,13 +118,13 @@ export default function Home() {
             <h2 className="text-3xl sm:text-4xl font-serif">
               Ready to Transform Your Space?
             </h2>
-            <p className="mt-4 text-xl text-gray-200 max-w-2xl mx-auto">
+            <p className="mt-4 text-xl text-white/90 max-w-2xl mx-auto">
               Let's create something beautiful together. Contact us to begin your journey
               to a space that inspires.
             </p>
             <Link
               href="/contact"
-              className="mt-8 inline-block bg-white text-accent-900 px-8 py-3 rounded-md font-medium hover:bg-gray-100 transition-colors duration-200"
+              className="mt-8 inline-block bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-full font-medium transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Get Started
             </Link>
