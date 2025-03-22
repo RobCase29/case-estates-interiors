@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import MasonryGrid from '@/components/portfolio/MasonryGrid';
+import MasonryGrid from '@/components/gallery/MasonryGrid';
 
 const projects = [
   {
@@ -61,7 +61,7 @@ const projects = [
   }
 ];
 
-export default function Portfolio() {
+export default function Gallery() {
   return (
     <main className="min-h-screen bg-background-light pt-24">
       <div className="container mx-auto px-4">
@@ -72,7 +72,7 @@ export default function Portfolio() {
           className="text-center mb-16"
         >
           <h1 className="text-4xl md:text-5xl font-serif text-text-dark mb-4">
-            Case Estates Portfolio
+            Case Estates Gallery
           </h1>
           <p className="text-lg text-text-light/80 max-w-2xl mx-auto">
             Explore our collection of thoughtfully curated spaces, each telling its own story through

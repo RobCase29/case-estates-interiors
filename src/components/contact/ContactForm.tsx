@@ -18,23 +18,11 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="relative py-24 overflow-hidden">
+    <section className="relative py-12 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-subtle-grid bg-grid-size opacity-30" />
       
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-3xl sm:text-4xl font-serif text-text-dark">Get in Touch</h2>
-          <p className="mt-4 text-lg text-text-light/80">
-            Let's discuss how we can transform your space into something extraordinary.
-          </p>
-        </motion.div>
-
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -105,7 +93,7 @@ export default function ContactForm() {
             <div className="text-center">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-deep-green hover:bg-deep-green/90 text-text-white font-medium transition-all duration-200 transform hover:scale-[1.02] hover:shadow-lg"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gold hover:bg-gold/90 text-white font-medium transition-all duration-200 transform hover:scale-[1.02] hover:shadow-lg"
               >
                 Send Message
               </button>

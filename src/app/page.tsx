@@ -168,7 +168,7 @@ export default function Home() {
                   href="/portfolio"
                   className="inline-block bg-white text-deep-green py-4 px-8 rounded-full font-medium hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
                 >
-                  View Portfolio
+                  View Gallery
                 </Link>
                 <Link
                   href="/contact"
