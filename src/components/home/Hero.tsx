@@ -78,7 +78,7 @@ export default function Hero({
   subheading = "Transforming spaces into timeless sanctuaries",
   backgroundImage = "/hero-interior.jpg",
   backgroundAlt = "Stunning interior design portfolio showcase",
-  primaryButtonText = "View Portfolio",
+  primaryButtonText = "View Gallery",
   primaryButtonLink = "/portfolio",
   secondaryButtonText = "Start Your Project",
   secondaryButtonLink = "/contact",
