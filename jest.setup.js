@@ -1,5 +1,6 @@
 // jest.setup.js
-import '@testing-library/jest-dom';
+const React = require('react');
+require('@testing-library/jest-dom');
 
 // Mock Next.js router
 jest.mock('next/router', () => ({
@@ -25,19 +26,20 @@ jest.mock('next/image', () => ({
 // Mock framer-motion
 jest.mock('framer-motion', () => ({
   motion: {
-    div: ({ children, ...props }) => <div {...props}>{children}</div>,
-    h1: ({ children, ...props }) => <h1 {...props}>{children}</h1>,
-    h2: ({ children, ...props }) => <h2 {...props}>{children}</h2>,
-    p: ({ children, ...props }) => <p {...props}>{children}</p>,
+    div: ({ children, ...props }) => React.createElement('div', props, children),
+    h1: ({ children, ...props }) => React.createElement('h1', props, children),
+    h2: ({ children, ...props }) => React.createElement('h2', props, children),
+    p: ({ children, ...props }) => React.createElement('p', props, children),
   },
   AnimatePresence: ({ children }) => <>{children}</>,
 }));
 
-// Mock next/font/google
+// Mock next/font
 jest.mock('next/font/google', () => ({
   Playfair_Display: () => ({
     className: 'mocked-playfair',
     style: { fontFamily: 'mocked-playfair' },
+    subsets: ['latin'],
   }),
 }));
 

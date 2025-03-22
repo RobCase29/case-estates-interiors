@@ -5,7 +5,7 @@ import Hero from '../Hero';
 
 // Mock the Link component to avoid router issues
 jest.mock('next/link', () => {
-  return ({ children, href, ...rest }: any) => {
+  return function MockLink({ children, href, ...rest }: { children: React.ReactNode; href: string; [key: string]: any }) {
     return (
       <a href={href} {...rest}>
         {children}
