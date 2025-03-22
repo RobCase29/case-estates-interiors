@@ -145,7 +145,7 @@ export default function Home() {
       {/* Call to Action */}
       <section className="py-24 relative overflow-hidden">
         <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-deep-green/95 to-deep-green/90" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#5B7B8C]/95 to-[#5B7B8C]/85" />
           <div className="absolute inset-0 bg-elegant-pattern bg-pattern-size opacity-10" />
         </div>
         <div className="container mx-auto px-4 relative">
@@ -166,7 +166,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row justify-center gap-4">
                 <Link
                   href="/portfolio"
-                  className="inline-block bg-white text-deep-green py-4 px-8 rounded-full font-medium hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                  className="inline-block bg-white text-[#5B7B8C] py-4 px-8 rounded-full font-medium hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
                 >
                   View Gallery
                 </Link>

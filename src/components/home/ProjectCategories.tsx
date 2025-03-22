@@ -53,7 +53,7 @@ export default function ProjectCategories() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-serif text-text-light">Our Expertise</h2>
+          <h2 className="text-4xl font-serif text-text-dark mb-4">Our Expertise</h2>
           <p className="mt-4 text-lg text-text-light/80 max-w-3xl mx-auto">
             From custom carpentry to complete space planning, we bring your vision to life with attention to every detail.
           </p>
@@ -67,10 +67,11 @@ export default function ProjectCategories() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
+              className="group"
             >
-              <Link href={`/portfolio/${category.id}`} className="group block">
+              <Link href={`/portfolio/${category.id}`} className="block">
                 <div className="relative h-80 overflow-hidden rounded-xl shadow-soft transition-all duration-300 group-hover:shadow-warm">
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background-dark/50" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/40 to-black/70 opacity-80 transition-opacity duration-300 group-hover:opacity-75" />
                   <Image
                     src={category.image}
                     alt={category.title}
@@ -79,8 +80,8 @@ export default function ProjectCategories() {
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                    <h3 className="text-xl font-serif mb-2">{category.title}</h3>
-                    <p className="text-sm text-white/90 line-clamp-2">{category.description}</p>
+                    <h3 className="text-xl font-serif mb-2 text-shadow-md">{category.title}</h3>
+                    <p className="text-sm text-white/95 line-clamp-2 text-shadow-sm">{category.description}</p>
                   </div>
                 </div>
               </Link>
