@@ -31,7 +31,58 @@ const fadeIn = {
   animate: { opacity: 1, y: 0, transition: { duration: 0.8 } }
 };
 
-export default function Hero() {
+export interface HeroProps {
+  /**
+   * Main heading text
+   */
+  heading?: string;
+  
+  /**
+   * Subheading text
+   */
+  subheading?: string;
+  
+  /**
+   * Background image path
+   */
+  backgroundImage?: string;
+  
+  /**
+   * Background image alt text
+   */
+  backgroundAlt?: string;
+  
+  /**
+   * Primary button text
+   */
+  primaryButtonText?: string;
+  
+  /**
+   * Primary button link
+   */
+  primaryButtonLink?: string;
+  
+  /**
+   * Secondary button text
+   */
+  secondaryButtonText?: string;
+  
+  /**
+   * Secondary button link
+   */
+  secondaryButtonLink?: string;
+}
+
+export default function Hero({
+  heading = "Case Estates Home Interiors",
+  subheading = "Transforming spaces into timeless sanctuaries",
+  backgroundImage = "/hero-interior.jpg",
+  backgroundAlt = "Stunning interior design portfolio showcase",
+  primaryButtonText = "View Portfolio",
+  primaryButtonLink = "/portfolio",
+  secondaryButtonText = "Start Your Project",
+  secondaryButtonLink = "/contact",
+}: HeroProps) {
   return (
     <section role="banner" className="relative h-screen overflow-hidden">
       {/**
@@ -40,8 +91,8 @@ export default function Hero() {
        * The 'fill' prop makes the image cover the entire section.
        */}
       <Image
-        src="/hero-interior.jpg"
-        alt="Stunning interior design portfolio showcase"
+        src={backgroundImage}
+        alt={backgroundAlt}
         fill
         className="object-cover absolute inset-0 z-[-1]"
         quality={90}
@@ -67,7 +118,15 @@ export default function Hero() {
           variants={fadeIn}
           className={`${playfair.className} text-4xl md:text-6xl lg:text-7xl text-gray-900 text-center tracking-tight [text-shadow:_0_1px_2px_rgba(0,0,0,0.1)]`}
         >
-          Case Estates<br className="hidden md:block" /> Home Interiors
+          {heading.includes(" ") ? (
+            <>
+              {heading.split(" ").slice(0, -2).join(" ")}{" "}
+              <br className="hidden md:block" />
+              {heading.split(" ").slice(-2).join(" ")}
+            </>
+          ) : (
+            heading
+          )}
         </motion.h1>
         {/**
          * Subheading with delayed animation:
@@ -78,7 +137,7 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.8 } }}
           className="mt-6 text-xl md:text-2xl text-gray-800 text-center max-w-2xl font-light [text-shadow:_0_1px_2px_rgba(255,255,255,0.5)]"
         >
-          Transforming spaces into timeless sanctuaries
+          {subheading}
         </motion.p>
         {/**
          * Call-to-Action Buttons:
@@ -90,21 +149,21 @@ export default function Hero() {
           className="mt-10 flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <Link 
-            href="/portfolio"
-            aria-label="View Portfolio"
+            href={primaryButtonLink}
+            aria-label={primaryButtonText}
             className="inline-block bg-white/90 backdrop-blur-sm text-gray-900 py-3 px-8 rounded-full font-medium hover:bg-white transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-[1.02] border border-white/20 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
           >
-            View Portfolio
+            {primaryButtonText}
           </Link>
           <Link 
-            href="/contact"
-            aria-label="Start Your Project"
+            href={secondaryButtonLink}
+            aria-label={secondaryButtonText}
             className="inline-block bg-gray-900/90 backdrop-blur-sm text-white py-3 px-8 rounded-full font-medium hover:bg-gray-900 transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
           >
-            Start Your Project
+            {secondaryButtonText}
           </Link>
         </motion.div>
       </div>
     </section>
   );
-} 
+}
