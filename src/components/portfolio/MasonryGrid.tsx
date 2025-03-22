@@ -5,16 +5,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
 
 interface Project {
-  id: string;
+  id: number;
   title: string;
   description: string;
   category: string;
   image: string;
   details: string;
-  dimensions: {
-    width: number;
-    height: number;
-  };
+  dimensions: string;
 }
 
 interface MasonryGridProps {
@@ -26,34 +23,28 @@ export default function MasonryGrid({ projects }: MasonryGridProps) {
 
   return (
     <>
-      <div className="columns-1 md:columns-2 lg:columns-3 gap-4 space-y-4 p-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {projects.map((project) => (
           <motion.div
             key={project.id}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="break-inside-avoid"
+            className="relative overflow-hidden rounded-lg shadow-lg group"
           >
-            <div
-              className="relative group cursor-pointer overflow-hidden"
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className="relative aspect-[4/3] md:aspect-auto">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-background-dark/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-xl font-serif mb-2">{project.title}</h3>
-                  <p className="text-sm text-text-white/90">{project.category}</p>
-                </div>
-              </div>
+            <div className="relative h-80">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            </div>
+            <div className="absolute inset-0 flex flex-col justify-end p-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 className="text-2xl font-serif mb-2">{project.title}</h3>
+              <p className="text-sm mb-4">{project.category}</p>
+              <p className="text-sm">{project.description}</p>
             </div>
           </motion.div>
         ))}
