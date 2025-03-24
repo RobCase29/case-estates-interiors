@@ -3,9 +3,20 @@
 @tailwind utilities;
 
 :root {
+  /* Base colors */
   --foreground-rgb: 23, 23, 23;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 245, 245, 245;
+  
+  /* Brand colors */
+  --color-deep-green: 44, 74, 60;
+  --color-taupe: 160, 143, 127;
+  --color-gold: 212, 175, 55;
+  
+  /* Animation durations */
+  --transition-slow: 700ms;
+  --transition-medium: 300ms;
+  --transition-fast: 150ms;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,12 +27,96 @@
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-    to bottom,
-    rgb(var(--background-start-rgb)),
-    rgb(var(--background-end-rgb))
-  );
-  min-height: 100vh;
+@media (prefers-reduced-motion) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer base {
+  body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+      to bottom,
+      rgb(var(--background-start-rgb)),
+      rgb(var(--background-end-rgb))
+    );
+    min-height: 100vh;
+    @apply antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+  
+  /* Improved focus styles for better accessibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    @apply outline-none ring-2 ring-deep-green ring-offset-2;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-block py-3 px-8 rounded-full font-medium transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-deep-green focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-deep-green text-white hover:bg-deep-green/90;
+  }
+  
+  .btn-secondary {
+    @apply bg-white/90 backdrop-blur-sm text-deep-green border border-deep-green/20 hover:bg-white;
+  }
+  
+  .btn-outline {
+    @apply bg-transparent border-2 border-deep-green text-deep-green hover:bg-deep-green/10;
+  }
+  
+  .section {
+    @apply py-16 md:py-24 relative;
+  }
+  
+  .container-tight {
+    @apply max-w-5xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-deep-green to-taupe;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  .backdrop-blur {
+    backdrop-filter: blur(8px);
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
 }
