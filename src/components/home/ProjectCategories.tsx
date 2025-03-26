@@ -39,7 +39,7 @@ const categories = [
     title: 'Decorating',
     description: 'Cozy, inviting spaces with layered textures and carefully selected furnishings.',
     image: '/projects/decorating.jpg',
-    color: 'from-gold/70 to-taupe/40',
+    color: 'from-primary/70 to-taupe/40',
   },
 ];
 
@@ -82,7 +82,7 @@ export default function ProjectCategories() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-serif text-text-dark mb-4">Our Expertise</h2>
+          <h2 className="text-4xl font-serif text-text-dark mb-4">Gallery</h2>
           <div className="w-20 h-0.5 bg-gold mx-auto my-6"></div>
           <p className="mt-4 text-lg text-text-light/80 max-w-3xl mx-auto">
             From custom carpentry to complete space planning, we bring your vision to life with attention to every detail.

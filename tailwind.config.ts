@@ -15,50 +15,50 @@ const config: Config = {
       },
       colors: {
         // Primary Colors
-        'deep-green': '#2F4F4F',
+        'deep-green': '#4C5869',
         'mahogany': '#654321',
-        'taupe': '#B3A492',
+        'taupe': '#D5DBD9',
         
         // Neutral & Background Colors
         'background': {
-          light: '#FAF9F6', // Warm White
-          dark: '#1D1D1D',  // Charcoal
+          light: '#FFFBF8',
+          dark: '#1D1D1D',
         },
-        'beige': '#E6DED1',
+        'beige': '#FFFBF8',
         
         // Accent Colors
-        'primary': '#CDAA7D', // Gold
-        'primary-hover': '#A0805A', // Darker Gold for hover
-        'navy': '#1D3557',
+        'primary': '#4C5869',
+        'primary-hover': '#3A4552',
+        'navy': '#4C5869',
         'blush': '#E3C6C2',
         
         // Typography Colors
         'text': {
-          light: '#2C2C2C', // Dark Gray
-          white: '#FFFFFF', // Pure White
-          dark: '#202020',  // Soft Black
+          light: '#4C5869',
+          white: '#FFFFFF',
+          dark: '#2C2C2C',
         },
         project: {
-          carpentry: '#8B7355',  // Warm wood tone
-          hotel: '#4A6670',      // Modern blue-grey
-          bathroom: '#2F4F4F',   // Deep green
-          planning: '#8E8279',   // Neutral taupe
-          decorating: '#967969', // Warm beige
+          carpentry: '#4C5869',
+          hotel: '#4C5869',
+          bathroom: '#4C5869',
+          planning: '#D5DBD9',
+          decorating: '#D5DBD9',
         },
       },
       backgroundImage: {
         'elegant-pattern': `
-          linear-gradient(120deg, rgba(179, 164, 146, 0.05), rgba(179, 164, 146, 0.1)),
-          linear-gradient(60deg, rgba(205, 170, 125, 0.05) 25%, transparent 25%, transparent 75%, rgba(205, 170, 125, 0.05) 75%),
-          linear-gradient(60deg, rgba(205, 170, 125, 0.05) 25%, transparent 25%, transparent 75%, rgba(205, 170, 125, 0.05) 75%)
+          linear-gradient(120deg, rgba(213, 219, 217, 0.05), rgba(213, 219, 217, 0.1)),
+          linear-gradient(60deg, rgba(76, 88, 105, 0.05) 25%, transparent 25%, transparent 75%, rgba(76, 88, 105, 0.05) 75%),
+          linear-gradient(60deg, rgba(76, 88, 105, 0.05) 25%, transparent 25%, transparent 75%, rgba(76, 88, 105, 0.05) 75%)
         `,
         'warm-texture': `
-          linear-gradient(to right, rgba(101, 67, 33, 0.05), rgba(101, 67, 33, 0.02)),
-          linear-gradient(to bottom, rgba(205, 170, 125, 0.05), rgba(205, 170, 125, 0.02))
+          linear-gradient(to right, rgba(76, 88, 105, 0.05), rgba(76, 88, 105, 0.02)),
+          linear-gradient(to bottom, rgba(213, 219, 217, 0.05), rgba(213, 219, 217, 0.02))
         `,
         'subtle-grid': `
-          linear-gradient(rgba(179, 164, 146, 0.05) 1px, transparent 1px),
-          linear-gradient(to right, rgba(179, 164, 146, 0.05) 1px, transparent 1px)
+          linear-gradient(rgba(213, 219, 217, 0.05) 1px, transparent 1px),
+          linear-gradient(to right, rgba(213, 219, 217, 0.05) 1px, transparent 1px)
         `,
       },
       backgroundSize: {
