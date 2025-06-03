@@ -144,7 +144,7 @@ export default function Hero({
            */}
           <motion.h1
             variants={fadeIn}
-            className={`${playfair.className} text-4xl md:text-6xl lg:text-7xl text-gray-900 text-center tracking-tight [text-shadow:_0_2px_4px_rgba(0,0,0,0.2)]`}
+            className={`${playfair.className} text-fluid-heading text-gray-900 text-center tracking-tight [text-shadow:_0_2px_4px_rgba(0,0,0,0.2)]`}
           >
             {heading.includes(" ") ? (
               <>
@@ -162,7 +162,7 @@ export default function Hero({
            */}
           <motion.p
             variants={fadeIn}
-            className="mt-6 text-xl md:text-2xl text-gray-800 text-center max-w-2xl mx-auto font-light [text-shadow:_0_1px_2px_rgba(255,255,255,0.5)]"
+            className="mt-6 text-fluid-subheading text-gray-800 text-center max-w-2xl mx-auto font-light [text-shadow:_0_1px_2px_rgba(255,255,255,0.5)]"
           >
             {subheading}
           </motion.p>

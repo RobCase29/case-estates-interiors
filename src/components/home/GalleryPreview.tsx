@@ -46,14 +46,14 @@ export default function GalleryPreview() {
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
-          className={`${playfair.className} text-4xl md:text-5xl text-center text-gray-900 mb-6`}
+          className={`${playfair.className} text-fluid-heading text-center text-gray-900 mb-6`}
         >
           Featured Projects
         </motion.h2>
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { delay: 0.3, duration: 0.8 } }}
-          className="text-center text-gray-600 max-w-2xl mx-auto mb-16 text-lg"
+          className="text-center text-gray-600 max-w-2xl mx-auto mb-16 text-fluid-subheading"
         >
           Discover our curated collection of thoughtfully designed spaces, 
           where every detail contributes to a harmonious and sophisticated environment.
