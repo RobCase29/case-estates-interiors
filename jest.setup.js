@@ -19,7 +19,7 @@ jest.mock('next/image', () => ({
   __esModule: true,
   default: (props) => {
     // eslint-disable-next-line jsx-a11y/alt-text
-    return <img {...props} />;
+    return React.createElement('img', props);
   },
 }));
 
@@ -31,7 +31,7 @@ jest.mock('framer-motion', () => ({
     h2: ({ children, ...props }) => React.createElement('h2', props, children),
     p: ({ children, ...props }) => React.createElement('p', props, children),
   },
-  AnimatePresence: ({ children }) => <>{children}</>,
+  AnimatePresence: ({ children }) => React.createElement(React.Fragment, null, children),
 }));
 
 // Mock next/font

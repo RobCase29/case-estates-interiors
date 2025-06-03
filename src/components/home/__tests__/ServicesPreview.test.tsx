@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import ServicesPreview from '../ServicesPreview';
 
 // Mock the Link component
@@ -49,7 +50,7 @@ describe('ServicesPreview Component', () => {
   describe('Navigation', () => {
     test('renders "View All Services" link with correct attributes', () => {
       render(<ServicesPreview />);
-      const viewAllLink = screen.getByRole('link', { name: /View All Services/i });
+      const viewAllLink = screen.getByRole('link', { name: /View all our interior design services/i });
       expect(viewAllLink).toBeInTheDocument();
       expect(viewAllLink).toHaveAttribute('href', '/services');
     });

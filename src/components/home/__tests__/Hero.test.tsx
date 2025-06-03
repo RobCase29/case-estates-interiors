@@ -1,6 +1,7 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import '@testing-library/jest-dom';
 import Hero from '../Hero';
 
 // Mock the Link component to avoid router issues
@@ -46,11 +47,11 @@ describe('Hero Component', () => {
       render(<Hero />);
     });
 
-    test('renders View Portfolio button with correct attributes', () => {
-      const viewPortfolioLink = screen.getByRole('link', { name: /View Portfolio/i });
+  test('renders View Gallery button with correct attributes', () => {
+      const viewPortfolioLink = screen.getByRole('link', { name: /View Gallery/i });
       expect(viewPortfolioLink).toBeInTheDocument();
       expect(viewPortfolioLink).toHaveAttribute('href', '/portfolio');
-      expect(viewPortfolioLink).toHaveAttribute('aria-label', 'View Portfolio');
+      expect(viewPortfolioLink).toHaveAttribute('aria-label', 'View Gallery');
     });
 
     test('renders Start Your Project button with correct attributes', () => {
@@ -71,7 +72,7 @@ describe('Hero Component', () => {
 
     test('buttons have proper focus indicators', () => {
       render(<Hero />);
-      const viewPortfolioLink = screen.getByRole('link', { name: /View Portfolio/i });
+    const viewPortfolioLink = screen.getByRole('link', { name: /View Gallery/i });
       const startProjectLink = screen.getByRole('link', { name: /Start Your Project/i });
       
       expect(viewPortfolioLink).toHaveClass('focus:outline-none');
@@ -88,7 +89,7 @@ describe('Hero Component', () => {
       const user = userEvent.setup();
       render(<Hero />);
       
-      const viewPortfolioLink = screen.getByRole('link', { name: /View Portfolio/i });
+    const viewPortfolioLink = screen.getByRole('link', { name: /View Gallery/i });
       expect(viewPortfolioLink).toHaveAttribute('href', '/portfolio');
       
       // We can add more complex interaction tests once we have a router mock
