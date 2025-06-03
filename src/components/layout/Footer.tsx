@@ -108,19 +108,28 @@ export default function Footer() {
             <h4 className="text-lg font-serif mb-4">Services</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/services#design" className="text-taupe hover:text-white transition-colors">Interior Design</Link>
+                <Link
+                  href="/services#interior-design"
+                  className="text-taupe hover:text-white transition-colors"
+                >
+                  Interior Design
+                </Link>
               </li>
               <li>
-                <Link href="/services#planning" className="text-taupe hover:text-white transition-colors">Space Planning</Link>
+                <Link
+                  href="/services#space-planning"
+                  className="text-taupe hover:text-white transition-colors"
+                >
+                  Space Planning
+                </Link>
               </li>
               <li>
-                <Link href="/services#styling" className="text-taupe hover:text-white transition-colors">Styling & Decoration</Link>
-              </li>
-              <li>
-                <Link href="/services#consulting" className="text-taupe hover:text-white transition-colors">Design Consulting</Link>
-              </li>
-              <li>
-                <Link href="/services#renovation" className="text-taupe hover:text-white transition-colors">Renovation Guidance</Link>
+                <Link
+                  href="/services#design-consultation"
+                  className="text-taupe hover:text-white transition-colors"
+                >
+                  Design Consultation
+                </Link>
               </li>
             </ul>
           </div>
