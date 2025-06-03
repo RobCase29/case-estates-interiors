@@ -31,6 +31,7 @@ export default function MasonryGrid({ projects }: MasonryGridProps) {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="relative overflow-hidden rounded-lg shadow-lg group"
+            onClick={() => setSelectedProject(project)}
           >
             <div className="relative h-80">
               <Image
