@@ -16,6 +16,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+  const isAboutPage = pathname === '/about';
   
   // Handle scroll events for navbar styling
   useEffect(() => {
@@ -98,7 +99,11 @@ export default function Navbar() {
       <div className="container mx-auto px-4 flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <div className="font-serif font-medium text-lg md:text-xl text-deep-green transition-all duration-300">
+          <div
+            className={`font-serif font-medium text-lg md:text-xl transition-all duration-300 ${
+              !scrolled && isAboutPage ? 'text-white' : 'text-deep-green'
+            }`}
+          >
             Case Estates Home Interiors
           </div>
         </Link>
@@ -109,10 +114,12 @@ export default function Navbar() {
             <Link
               key={link.href}
               href={link.href}
-              className={`text-sm font-medium hover:text-primary transition-colors duration-300 ${
-                pathname === link.href 
-                  ? 'text-primary border-b-2 border-primary' 
-                  : 'text-deep-green'
+              className={`text-sm font-medium transition-colors duration-300 ${
+                pathname === link.href
+                  ? 'text-primary border-b-2 border-primary'
+                  : !scrolled && isAboutPage
+                  ? 'text-white hover:text-white/80'
+                  : 'text-deep-green hover:text-primary'
               }`}
             >
               {link.name}
@@ -127,8 +134,8 @@ export default function Navbar() {
         </nav>
         
         {/* Mobile menu button */}
-        <button 
-          className="lg:hidden text-deep-green"
+        <button
+          className={`lg:hidden ${!scrolled && isAboutPage ? 'text-white' : 'text-deep-green'}`}
           onClick={openMenu}
           aria-label="Open menu"
         >
