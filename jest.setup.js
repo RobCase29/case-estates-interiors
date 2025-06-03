@@ -1,6 +1,7 @@
 // jest.setup.js
 const React = require('react');
 require('@testing-library/jest-dom');
+globalThis.IS_REACT_ACT_ENVIRONMENT = true;
 
 // Mock Next.js router
 jest.mock('next/router', () => ({
@@ -17,22 +18,40 @@ jest.mock('next/router', () => ({
 // Mock next/image
 jest.mock('next/image', () => ({
   __esModule: true,
-  default: (props) => {
+  // Remove Next.js specific props that aren't valid on <img>
+  default: ({ fill, priority, placeholder, blurDataURL, loader, ...rest }) => {
     // eslint-disable-next-line jsx-a11y/alt-text
-    return React.createElement('img', props);
+    return React.createElement('img', rest);
   },
 }));
 
 // Mock framer-motion
-jest.mock('framer-motion', () => ({
-  motion: {
-    div: ({ children, ...props }) => React.createElement('div', props, children),
-    h1: ({ children, ...props }) => React.createElement('h1', props, children),
-    h2: ({ children, ...props }) => React.createElement('h2', props, children),
-    p: ({ children, ...props }) => React.createElement('p', props, children),
-  },
-  AnimatePresence: ({ children }) => React.createElement(React.Fragment, null, children),
-}));
+jest.mock('framer-motion', () => {
+  const omitMotionProps = ({
+    initial,
+    animate,
+    exit,
+    whileInView,
+    transition,
+    viewport,
+    variants,
+    ...rest
+  }) => rest;
+
+  return {
+    motion: {
+      div: ({ children, ...props }) =>
+        React.createElement('div', omitMotionProps(props), children),
+      h1: ({ children, ...props }) =>
+        React.createElement('h1', omitMotionProps(props), children),
+      h2: ({ children, ...props }) =>
+        React.createElement('h2', omitMotionProps(props), children),
+      p: ({ children, ...props }) =>
+        React.createElement('p', omitMotionProps(props), children),
+    },
+    AnimatePresence: ({ children }) => React.createElement(React.Fragment, null, children),
+  };
+});
 
 // Mock next/font
 jest.mock('next/font/google', () => ({
