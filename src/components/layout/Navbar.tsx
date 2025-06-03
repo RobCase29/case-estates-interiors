@@ -13,7 +13,6 @@ const navigation = [
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
@@ -36,7 +35,7 @@ export default function Navbar() {
   
   // Close mobile menu when route changes
   useEffect(() => {
-    setIsOpen(false);
+    setIsMenuOpen(false);
   }, [pathname]);
 
   const openMenu = () => {
