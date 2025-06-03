@@ -53,10 +53,10 @@ export default function ServicesPreview() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 id="services-title" className={`${playfair.className} text-4xl md:text-5xl text-gray-900 mb-6`}>
+          <h2 id="services-title" className={`${playfair.className} text-fluid-heading text-gray-900 mb-6`}>
             Our Services
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <p className="text-gray-600 max-w-2xl mx-auto text-fluid-subheading">
             From concept to completion, we transform spaces with thoughtful design
             that perfectly balances beauty and functionality.
           </p>
