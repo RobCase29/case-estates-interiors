@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
+  // Generate a static site suitable for GitHub Pages
+  output: 'export',
+  distDir: 'docs',
   images: {
     remotePatterns: [
       {
