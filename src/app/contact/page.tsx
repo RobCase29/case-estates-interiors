@@ -1,5 +1,3 @@
-"use client";
-
 import { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import ContactForm from "@/components/contact/ContactForm";
