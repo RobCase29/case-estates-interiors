@@ -144,7 +144,7 @@ export default function Hero({
            */}
           <motion.h1
             variants={fadeIn}
-            className={`${playfair.className} text-fluid-heading text-gray-900 text-center tracking-tight [text-shadow:_0_2px_4px_rgba(0,0,0,0.2)]`}
+            className={`${playfair.className} text-fluid-heading text-gradient text-center tracking-tight drop-shadow-lg`}
           >
             {heading.includes(" ") ? (
               <>
