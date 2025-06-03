@@ -12,7 +12,6 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-inter)'],
         serif: ['var(--font-playfair)'],
-        body: ['var(--font-lora)'],
       },
       colors: {
         // Primary Colors

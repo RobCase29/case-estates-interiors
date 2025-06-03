@@ -38,17 +38,7 @@ jest.mock('framer-motion', () => ({
 jest.mock('next/font/google', () => ({
   Playfair_Display: () => ({
     className: 'mocked-playfair',
-    variable: 'mocked-playfair',
-    subsets: ['latin'],
-  }),
-  Inter: () => ({
-    className: 'mocked-inter',
-    variable: 'mocked-inter',
-    subsets: ['latin'],
-  }),
-  Lora: () => ({
-    className: 'mocked-lora',
-    variable: 'mocked-lora',
+    style: { fontFamily: 'mocked-playfair' },
     subsets: ['latin'],
   }),
 }));
