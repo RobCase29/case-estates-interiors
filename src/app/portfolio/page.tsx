@@ -2,7 +2,12 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import MasonryGrid from '@/components/gallery/MasonryGrid';
+import dynamic from 'next/dynamic';
+
+const MasonryGrid = dynamic(() => import('@/components/gallery/MasonryGrid'), {
+  loading: () => <p>Loading gallery...</p>,
+  ssr: false,
+});
 
 const projects = [
   {

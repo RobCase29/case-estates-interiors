@@ -38,6 +38,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable} scroll-smooth`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
+      </head>
       <body className="font-sans bg-background-light text-text-light flex flex-col min-h-screen">
         {/* Skip to content link for accessibility */}
         <a 
