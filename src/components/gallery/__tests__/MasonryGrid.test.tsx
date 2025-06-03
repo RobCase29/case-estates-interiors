@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, act } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 import MasonryGrid from '../MasonryGrid';
@@ -23,8 +23,10 @@ describe('MasonryGrid Component', () => {
     expect(screen.queryByText('Detailed information')).not.toBeInTheDocument();
 
     const image = screen.getByAltText('Sample Project');
-    await user.click(image);
-
+    await act(async () => {
+      await user.click(image);
+    });
+    await screen.findByText('Detailed information');
     expect(screen.getByText('Detailed information')).toBeInTheDocument();
   });
 });
