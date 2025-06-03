@@ -10,15 +10,19 @@ export default function ContactForm() {
     phone: '',
     message: '',
   });
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     // TODO: Implement form submission logic
     console.log('Form submitted:', formState);
+    setSubmitted(true);
+    setFormState({ name: '', email: '', phone: '', message: '' });
+    setTimeout(() => setSubmitted(false), 5000);
   };
 
   return (
-    <section className="relative py-12 overflow-hidden">
+    <section id="contact-form" className="relative py-12 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-subtle-grid bg-grid-size opacity-30" />
       
@@ -116,8 +120,18 @@ export default function ContactForm() {
               </div>
             </div>
           </div>
+
+          {submitted && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="mt-8 bg-deep-green text-white text-center py-4 rounded-lg shadow-md"
+            >
+              Thank you for reaching out! We'll be in touch soon.
+            </motion.div>
+          )}
         </motion.div>
       </div>
     </section>
   );
-} 
+}
