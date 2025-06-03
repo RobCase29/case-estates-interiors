@@ -11,14 +11,34 @@ export default function ContactForm() {
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement form submission logic
-    console.log('Form submitted:', formState);
-    setSubmitted(true);
-    setFormState({ name: '', email: '', phone: '', message: '' });
-    setTimeout(() => setSubmitted(false), 5000);
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || 'Failed to submit form');
+      }
+
+      setSubmitted(true);
+      setFormState({ name: '', email: '', phone: '', message: '' });
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (err: any) {
+      setError(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -97,9 +117,10 @@ export default function ContactForm() {
             <div className="text-center">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gold hover:bg-gold/90 text-white font-medium transition-all duration-200 transform hover:scale-[1.02] hover:shadow-lg"
+                disabled={isSubmitting}
+                className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-gold hover:bg-gold/90 text-white font-medium transition-all duration-200 transform hover:scale-[1.02] hover:shadow-lg disabled:opacity-60"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </div>
           </form>
@@ -128,6 +149,16 @@ export default function ContactForm() {
               className="mt-8 bg-deep-green text-white text-center py-4 rounded-lg shadow-md"
             >
               Thank you for reaching out! We'll be in touch soon.
+            </motion.div>
+          )}
+
+          {error && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="mt-8 bg-red-600 text-white text-center py-4 rounded-lg shadow-md"
+            >
+              {error}
             </motion.div>
           )}
         </motion.div>
