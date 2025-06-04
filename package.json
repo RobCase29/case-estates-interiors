@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "CI=true NEXT_USE_FLAT_CONFIG=true ESLINT_USE_FLAT_CONFIG=true next lint",
     "export": "next build",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -41,5 +41,8 @@
     "tailwindcss": "^3.3.5",
     "ts-jest": "^29.2.6",
     "typescript": "^5"
+  },
+  "eslintConfig": {
+    "root": true
   }
 }
